@@ -1,5 +1,6 @@
 /**
  * Index file for array module
+ * @module
  */
 
 export * from "./insert.ts"

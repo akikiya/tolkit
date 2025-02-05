@@ -1,4 +1,9 @@
 /**
+ * Implements the chunk function.
+ * @module
+ */
+
+/**
  * Splits an array into subarrays of the specified size.
  * @template T - the type of the array elements
  * @param {T[]} array - the array to split

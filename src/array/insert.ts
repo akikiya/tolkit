@@ -1,4 +1,9 @@
 /**
+ * Implements array insertion functions.
+ * @module
+ */
+
+/**
  * Inserts items into an array at the specified index.
  * @template T - the type of the array items
  * @param {T[]} array - the array to insert items into

@@ -1,3 +1,8 @@
+/**
+ * Test case for chunk function
+ * @module
+ */
+
 import { assertEquals } from "@std/assert"
 import { chunk } from "./chunk.ts"
 
