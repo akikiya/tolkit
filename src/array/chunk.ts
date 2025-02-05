@@ -1,5 +1,5 @@
 /**
- * Splits an array into subarrays of the specified size.
+ * Creates a new array of elements split into groups the length of `size`.
  * @template T - the type of the array elements
  * @param {T[]} array - the array to split
  * @param {number} [size=1] - the maximum size of each subarray, expected to be a positive integer
@@ -8,8 +8,7 @@
  * @category Array
  */
 export function chunk<T>(array: T[], size: number = 1): T[][] | null {
-  if (!Array.isArray(array)) return null
-  if (!Number.isInteger(size) || size < 1) return null
+  if (!Array.isArray(array) || !Number.isInteger(size) || size < 1) return null
   if (array.length === 0) return []
   const chunks = []
   for (let i = 0; i < array.length; i += size) {

@@ -5,3 +5,4 @@
 
 export * from "./insert.ts"
 export * from "./chunk.ts"
+export * from "./intersection-and-difference.ts"

@@ -1,5 +1,5 @@
 /**
- * It is all the tools that the package provides.
+ * `@akey/tolkit` is designed to provide a collection of useful tools and utilities for JavaScript and TypeScript developers.
  * @module
  */
 
