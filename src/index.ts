@@ -1,5 +1,5 @@
 /**
- * Index file for the `@akey/tolkit` package.
+ * It is all the tools that the package provides.
  * @module
  */
 

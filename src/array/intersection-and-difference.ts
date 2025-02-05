@@ -1,9 +1,4 @@
 /**
- * Implements the intersection and difference of two arrays.
- * @module
- */
-
-/**
  * Obtains the intersection set between two arrays.
  * @template T - the type of the elements in the arrays
  * @param {T[]} array1 - the first array

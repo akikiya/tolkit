@@ -1,8 +1,3 @@
-/**
- * Test cases for intersection and difference functions
- * @module
- */
-
 import { assertEquals } from "@std/assert"
 import { intersection, difference } from "./intersection-and-difference.ts"
 

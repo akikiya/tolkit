@@ -1,8 +1,3 @@
-/**
- * Test cases for the insertion function
- * @module
- */
-
 import { assertEquals } from "@std/assert"
 import { insert } from "./insert.ts"
 

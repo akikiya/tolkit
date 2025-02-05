@@ -1,5 +1,5 @@
 /**
- * Index file for array module
+ * All the tools listed here are used to manipulate arrays.
  * @module
  */
 
