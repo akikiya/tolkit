@@ -1,6 +1,6 @@
 /**
  * All the tools listed here are used to manipulate arrays.
- * @module
+ * @module Array
  */
 
 export * from "./insert.ts"
