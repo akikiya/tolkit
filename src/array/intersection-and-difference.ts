@@ -5,7 +5,6 @@
  * @param {T[]} array2 - the second array
  * @returns {T[]|null} - the difference between the two arrays; `null` if either `array1` or `array2` is not an array
  * @since 0.1.3
- * @category Array
  */
 export function intersection<T>(array1: T[], array2: T[]): T[] | null {
   if (!Array.isArray(array1) || !Array.isArray(array2)) return null
@@ -19,7 +18,6 @@ export function intersection<T>(array1: T[], array2: T[]): T[] | null {
  * @param {T[]} array2 - the second array
  * @returns {T[]|null} - the difference between the two arrays; `null` if either `array1` or `array2` is not an array
  * @since 0.1.3
- * @category Array
  */
 export function difference<T>(array1: T[], array2: T[]): T[] | null {
   if (!Array.isArray(array1) || !Array.isArray(array2)) return null

@@ -5,7 +5,6 @@
  * @param {number} [size=1] - the maximum size of each subarray, expected to be a positive integer
  * @returns {T[][]|null} the array of subarrays; `null` if `array` is not an array or `size` is not a positive integer
  * @since 0.0.1
- * @category Array
  */
 export function chunk<T>(array: T[], size: number = 1): T[][] | null {
   if (!Array.isArray(array) || !Number.isInteger(size) || size < 1) return null

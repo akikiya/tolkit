@@ -6,7 +6,6 @@
  * @param {T[]} items - the items to insert
  * @returns {T[]|null} a new array with the items inserted; `null` if `array` is not an array or `index` is not an integer
  * @since 0.0.1
- * @category Array
  */
 export function insert<T>(array: T[], index: number, ...items: T[]): T[] | null {
   if (!Array.isArray(array) || !Number.isInteger(index)) return null
@@ -20,7 +19,6 @@ export function insert<T>(array: T[], index: number, ...items: T[]): T[] | null 
  * @param {T[]} items - the items to insert
  * @returns {T[]|null} a new array with the items inserted; `null` if `array` is not an array
  * @since 0.0.1
- * @category Array
  */
 export function unshift<T>(array: T[], ...items: T[]): T[] | null {
   return insert(array, 0, ...items)
@@ -33,7 +31,6 @@ export function unshift<T>(array: T[], ...items: T[]): T[] | null {
  * @param {T[]} items - the items to insert
  * @returns {T[]|null} a new array with the items inserted; `null` if `array` is not an array
  * @since 0.0.1
- * @category Array
  */
 export function append<T>(array: T[], ...items: T[]): T[] | null {
   return insert(array, array.length, ...items)
