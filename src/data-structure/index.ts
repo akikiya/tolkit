@@ -1,6 +1,6 @@
 /**
  * Here are some data structures.
- * @module DataStructures
+ * @module
  */
 
 export * from "./linked-list.ts"
