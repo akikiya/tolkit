@@ -4,3 +4,4 @@
  */
 
 export * from "./stack.ts"
+export * from "./linked-list.ts"
