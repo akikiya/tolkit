@@ -3,5 +3,6 @@
  * @module DataStructures
  */
 
-export * from "./stack.ts"
 export * from "./linked-list.ts"
+export * from "./stack.ts"
+export * from "./queue.ts"

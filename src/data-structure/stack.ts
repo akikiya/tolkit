@@ -13,7 +13,7 @@ export interface Stack<T> {
    * Adds an element to the top of the stack.
    * @param {T} element The element to add to the stack.
    */
-  push(element: T): void
+  push(...elements: T[]): void
   /**
    * Removes and returns the element at the top of the stack.
    * @returns {T | void} The element at the top of the stack, or undefined if the stack is empty.
@@ -48,8 +48,8 @@ export class ArrayStack<T> implements Stack<T> {
   isEmpty(): boolean {
     return this.size() === 0
   }
-  push(element: T): void {
-    this.#elements.push(element)
+  push(...elements: T[]): void {
+    this.#elements.push(...elements)
   }
   pop(): T | void {
     return this.#elements.pop()
@@ -78,8 +78,10 @@ export class ObjectStack<T> implements Stack<T> {
   isEmpty(): boolean {
     return this.size() === 0
   }
-  push(element: T): void {
-    this.#elements[this.#count++] = element
+  push(...elements: T[]): void {
+    for (const element of elements) {
+      this.#elements[this.#count++] = element
+    }
   }
   pop(): T | void {
     if (this.isEmpty()) return
