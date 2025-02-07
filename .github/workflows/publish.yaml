@@ -18,5 +18,7 @@ jobs:
         uses: denoland/setup-deno@v2
         with:
           deno-version: 2.x
+      - name: Test code
+        run: deno test
       - name: Publish code
         run: deno publish --token ${{ secrets.JSR_PUBLISH_TOKEN }}
