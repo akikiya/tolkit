@@ -1,9 +1,9 @@
 /**
  * Obtains the intersection set between two arrays.
  * @template T - the type of the elements in the arrays
- * @param {T[]} array1 - the first array
- * @param {T[]} array2 - the second array
- * @returns {T[]|null} - the difference between the two arrays; `null` if either `array1` or `array2` is not an array
+ * @param array1 - the first array
+ * @param array2 - the second array
+ * @returns the difference between the two arrays; `null` if either `array1` or `array2` is not an array
  * @since 0.1.3
  */
 export function intersection<T>(array1: T[], array2: T[]): T[] | null {
@@ -14,9 +14,9 @@ export function intersection<T>(array1: T[], array2: T[]): T[] | null {
 /**
  * Obtains the difference set between two arrays.
  * @template T - the type of the elements in the arrays
- * @param {T[]} array1 - the first array
- * @param {T[]} array2 - the second array
- * @returns {T[]|null} - the difference between the two arrays; `null` if either `array1` or `array2` is not an array
+ * @param array1 - the first array
+ * @param array2 - the second array
+ * @returns the difference between the two arrays; `null` if either `array1` or `array2` is not an array
  * @since 0.1.3
  */
 export function difference<T>(array1: T[], array2: T[]): T[] | null {

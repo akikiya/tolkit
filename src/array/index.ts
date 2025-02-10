@@ -1,5 +1,5 @@
 /**
- * All the tools listed here are used to manipulate arrays.
+ * Here are some utilities for working with arrays.
  * @module
  */
 

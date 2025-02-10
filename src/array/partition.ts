@@ -2,8 +2,8 @@
  * Generates an array of two arrays from an array,
  * one containing the elements that satisfy the predicate,
  * and the other containing the elements that do not.
- * @param arr The array to partition
- * @param predicate The predicate function to test each element against
+ * @param arr - the array to partition
+ * @param predicate - the predicate function to test each element against
  * @returns the generated array
  */
 export function partition<T>(arr: T[], predicate: (el: T) => boolean): T[][] {

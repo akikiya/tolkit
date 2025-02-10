@@ -3,32 +3,32 @@ import { LinkedList } from "./linked-list.ts"
 export interface Queue<T> {
   /**
    * Returns the number of elements in the queue.
-   * @returns {number} The number of elements in the queue.
+   * @returns the number of elements in the queue
    */
   size(): number
   /**
    * Checks if the queue is empty.
-   * @returns {boolean} True if the queue is empty, false otherwise.
+   * @returns true if the queue is empty, false otherwise
    */
   isEmpty(): boolean
   /**
    * Adds an element to the end of the queue.
-   * @param {T[]} elements The elements to add to the queue.
+   * @param elements The elements to add to the queue
    */
   enqueue(...elements: T[]): void
   /**
    * Removes and returns the element at the front of the queue.
-   * @returns {T | void} The element at the front of the queue, or undefined if the queue is empty.
+   * @returns the element at the front of the queue, or undefined if the queue is empty
    */
   dequeue(): T | void
   /**
    * Returns the element at the front of the queue without removing it.
-   * @returns {T | void} The element at the front of the queue, or undefined if the queue is empty.
+   * @returns the element at the front of the queue, or undefined if the queue is empty
    */
   front(): T | void
   /**
    * Returns the element at the end of the queue without removing it.
-   * @returns {T | void} The element at the end of the queue, or undefined if the queue is empty.
+   * @returns the element at the end of the queue, or undefined if the queue is empty
    */
   back(): T | void
   /**

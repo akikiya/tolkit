@@ -1,5 +1,5 @@
 /**
- * Here are some data structures.
+ * Here are some utilities for working with data structures.
  * @module
  */
 

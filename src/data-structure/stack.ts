@@ -1,27 +1,27 @@
 export interface Stack<T> {
   /**
    * Returns the number of elements in the stack.
-   * @returns {number} The number of elements in the stack.
+   * @returns the number of elements in the stack
    */
   size(): number
   /**
    * Returns true if the stack is empty, false otherwise.
-   * @returns {boolean} True if the stack is empty, false otherwise.
+   * @returns true if the stack is empty, false otherwise
    */
   isEmpty(): boolean
   /**
    * Adds an element to the top of the stack.
-   * @param {T} element The element to add to the stack.
+   * @param element The element to add to the stack
    */
   push(...elements: T[]): void
   /**
    * Removes and returns the element at the top of the stack.
-   * @returns {T | void} The element at the top of the stack, or undefined if the stack is empty.
+   * @returns the element at the top of the stack, or undefined if the stack is empty
    */
   pop(): T | void
   /**
    * Returns the element at the top of the stack without removing it.
-   * @returns {T | void} The element at the top of the stack, or undefined if the stack is empty.
+   * @returns the element at the top of the stack, or undefined if the stack is empty
    */
   peek(): T | void
   /**
@@ -30,7 +30,7 @@ export interface Stack<T> {
   clear(): void
   /**
    * Returns an array containing all elements in the stack.
-   * @returns {T[]} An array containing all elements in the stack.
+   * @returns an array containing all elements in the stack
    */
   toArray(): T[]
 }

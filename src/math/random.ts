@@ -1,11 +1,11 @@
 /**
  * Generates a random integer within a specified range.
- * @param {number} lower - The lower bound of the range (inclusive).
- * @param {number} upper - The upper bound of the range (exclusive by default).
- * @param {boolean} [isInclusive=false] - Whether the upper bound should be inclusive.
- * @returns {number} - The random integer within the specified range.
- * @throws {TypeError} - If lower or upper is not a finite number.
- * @throws {RangeError} - If lower is greater than upper.
+ * @param lower - The lower bound of the range (inclusive)
+ * @param upper - The upper bound of the range (exclusive by default)
+ * @param [isInclusive=false] - Whether the upper bound should be inclusive
+ * @returns the random integer within the specified range
+ * @throws TypeError - if lower or upper is not a finite number
+ * @throws RangeError - if lower is greater than upper
  * @since 0.5.0
  */
 export function randomInt(lower: number, upper: number, isInclusive: boolean = false): number {
@@ -27,11 +27,11 @@ export function randomInt(lower: number, upper: number, isInclusive: boolean = f
 
 /**
  * Generates a random floating-point number within a specified range.
- * @param {number} lower - The lower bound of the range (inclusive).
- * @param {number} upper - The upper bound of the range (exclusive).
- * @returns {number} - The random floating-point number within the specified range.
- * @throws {TypeError} - If lower or upper is not a finite number.
- * @throws {RangeError} - If lower is greater than upper.
+ * @param lower - The lower bound of the range (inclusive)
+ * @param upper - The upper bound of the range (exclusive)
+ * @returns the random floating-point number within the specified range
+ * @throws TypeError - if lower or upper is not a finite number
+ * @throws RangeError - if lower is greater than upper
  * @since 0.5.0
  */
 export function randomFloat(lower: number, upper: number): number {

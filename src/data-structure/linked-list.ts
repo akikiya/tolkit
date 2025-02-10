@@ -8,17 +8,17 @@ class Node<T> {
 }
 
 /**
- * An implementation of a linked list
+ * An implementation of a linked list.
  */
 export class LinkedList<T> implements Iterable<T> {
   #head: Node<T> | null = null
   #size: number = 0
 
   /**
-   * Creates nodes from the given values
-   * @param values - Node value array
-   * @param next - Next node
-   * @returns Created node
+   * Creates nodes from the given values.
+   * @param values - node value array
+   * @param next - next node
+   * @returns the created node
    * @since 0.3.0
    */
   #createNodes(values: T[], next: Node<T> | null): Node<T> {
@@ -26,8 +26,8 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Adds nodes to the head of the list
-   * @param values - Node value array to be added
+   * Adds nodes to the head of the list.
+   * @param values - node value array to be added
    * @since 0.3.0
    */
   prepend(...values: T[]): void {
@@ -36,8 +36,8 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Adds nodes to the tail of the list
-   * @param values - Node value array to be added
+   * Adds nodes to the tail of the list.
+   * @param values - node value array to be added
    * @since 0.3.0
    */
   append(...values: T[]): void {
@@ -55,9 +55,9 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Inserts nodes at the specified position
-   * @param index - Insert position
-   * @param values - Node value array to be inserted
+   * Inserts nodes at the specified position.
+   * @param index - insert position
+   * @param values - node value array to be inserted
    * @since 0.3.0
    */
   insert(index: number, ...values: T[]): void {
@@ -79,9 +79,9 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Gets the node value at the specified position
-   * @param index - Node position
-   * @returns Node value
+   * Gets the node value at the specified position.
+   * @param index - node position
+   * @returns node value
    * @since 0.3.0
    */
   get(index: number): T {
@@ -99,9 +99,9 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Sets the node value at the specified position
-   * @param index - Node position
-   * @param value - Node value
+   * Sets the node value at the specified position.
+   * @param index - node position
+   * @param value - node value
    */
   set(index: number, value: T): void {
     if (typeof index !== "number") throw new TypeError("Index must be a number")
@@ -119,9 +119,9 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Gets the first node position of the specified value
-   * @param value - Node value
-   * @returns Node position
+   * Gets the first node position of the specified value.
+   * @param value - node value
+   * @returns node position
    * @since 0.3.0
    */
   indexOf(value: T): number | null {
@@ -136,7 +136,7 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Clears the list
+   * Clears the list.
    * @since 0.3.0
    */
   clear(): void {
@@ -145,8 +145,8 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Deletes the node at the specified position
-   * @param index - Node position
+   * Deletes the node at the specified position.
+   * @param index - node position
    * @since 0.3.0
    */
   delete(index: number): void {
@@ -168,8 +168,8 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Gets the size of the list
-   * @returns List size
+   * Gets the size of the list.
+   * @returns list size
    * @since 0.3.0
    */
   size(): number {
@@ -177,8 +177,8 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Iterator
-   * @returns Iterator object
+   * Iterator.
+   * @returns iterator object
    * @since 0.3.0
    */
   *[Symbol.iterator](): Iterator<T> {
@@ -193,9 +193,9 @@ export class LinkedList<T> implements Iterable<T> {
 
   /**
    * Creates a new linked list from list1 and list2.
-   * @param list1 - List 1
-   * @param list2 - List 2
-   * @returns New linked list
+   * @param list1 - list 1
+   * @param list2 - list 2
+   * @returns the new linked list
    * @since 0.3.0
    */
   static merge<T, U>(list1: LinkedList<T>, list2: LinkedList<U>): LinkedList<T | U> {
@@ -205,10 +205,10 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Creates a new linked list of which the values meet the condition specified by the callback function
-   * @param list - List
-   * @param predicate - A function that accepts one or two arguments, called for each element in the list
-   * @returns New linked list
+   * Creates a new linked list of which the values meet the condition specified by the callback function.
+   * @param list - the list
+   * @param predicate - a function that accepts one or two arguments, called for each element in the list
+   * @returns thr new linked list
    * @since 0.3.0
    */
   static filter<T>(
