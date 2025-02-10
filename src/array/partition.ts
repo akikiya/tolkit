@@ -5,6 +5,8 @@
  * @param arr - the array to partition
  * @param predicate - the predicate function to test each element against
  * @returns the generated array
+ * @throws TypeError - if `arr` is not an array or `predicate` is not a function
+ * @since 0.5.0
  */
 export function partition<T>(arr: T[], predicate: (el: T) => boolean): T[][] {
   if (!Array.isArray(arr)) throw new TypeError("Expected an array")
