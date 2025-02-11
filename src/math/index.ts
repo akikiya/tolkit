@@ -4,3 +4,4 @@
  */
 
 export * from "./random.ts"
+export * from "./median.ts"
