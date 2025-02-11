@@ -54,7 +54,7 @@ function select(arr: number[], left: number, right: number, k: number): number {
  * @returns the median of the array
  * @since 0.6.0
  */
-export function median(arr: number[]) {
+export function median(arr: number[]): number {
   const arrCopy = arr.slice()
   const len = arrCopy.length
   const mid = Math.floor(len / 2)
