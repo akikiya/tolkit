@@ -82,6 +82,8 @@ export class LinkedList<T> implements Iterable<T> {
    * Gets the node value at the specified position.
    * @param index - node position
    * @returns node value
+   * @throws TypeError - if index is not a number
+   * @throws RangeError - if index is out of bounds
    * @since 0.3.0
    */
   get(index: number): T {
@@ -189,6 +191,15 @@ export class LinkedList<T> implements Iterable<T> {
       n = n?.next ?? null
       i++
     }
+  }
+
+  /**
+   * Converts the list to an array.
+   * @returns the list as an array
+   * @since 0.7.0
+   */
+  toArray(): T[] {
+    return [...this]
   }
 
   /**
