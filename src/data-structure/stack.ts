@@ -76,7 +76,7 @@ export class ObjectStack<T> implements Stack<T> {
     return this.#count
   }
   isEmpty(): boolean {
-    return this.size() === 0
+    return this.#count === 0
   }
   push(...elements: T[]): void {
     for (const element of elements) {
@@ -84,19 +84,25 @@ export class ObjectStack<T> implements Stack<T> {
     }
   }
   pop(): T | void {
-    if (this.isEmpty()) return
+    if (this.#count === 0) return
+    
     const element = this.#elements[--this.#count]
     delete this.#elements[this.#count]
     return element
   }
   peek(): T | void {
-    return this.#elements[this.size() - 1]
+    if (this.#count === 0) return
+    return this.#elements[this.#count - 1]
   }
   clear(): void {
     this.#elements = {}
     this.#count = 0
   }
   toArray(): T[] {
-    return Array.from(Object.assign({}, this.#elements, { length: this.#count }))
+    const arr = new Array(this.#count)
+    for (let i = 0; i < this.#count; i++) {
+      arr[i] = this.#elements[i]
+    }
+    return arr
   }
 }

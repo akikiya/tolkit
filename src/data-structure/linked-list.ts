@@ -1,3 +1,7 @@
+/**
+ * Represents a node in a linked list.
+ * @template T The type of value stored in the node
+ */
 class Node<T> {
   value: T
   next: Node<T> | null
@@ -8,12 +12,20 @@ class Node<T> {
 }
 
 /**
- * An implementation of a linked list.
+ * An implementation of a singly linked list.
+ * 
+ * Features:
+ * - Generic type support
+ * - Iterable interface implementation
+ * - Array-like index access
+ * - Negative index support
+ * 
+ * @template T The type of elements in the linked list
  */
 export class LinkedList<T> implements Iterable<T> {
   #head: Node<T> | null = null
+  #tail: Node<T> | null = null
   #size: number = 0
-
   /**
    * Creates nodes from the given values.
    * @param values - node value array
@@ -24,36 +36,37 @@ export class LinkedList<T> implements Iterable<T> {
   #createNodes(values: T[], next: Node<T> | null): Node<T> {
     return values.reduceRight((acc, cur) => new Node(cur, acc), next) as Node<T>
   }
-
   /**
    * Adds nodes to the head of the list.
    * @param values - node value array to be added
    * @since 0.3.0
    */
   prepend(...values: T[]): void {
-    this.#head = this.#createNodes(values, this.#head)
+    if (values.length === 0) return
+    const newNodes = this.#createNodes(values, this.#head)
+    this.#head = newNodes
+    if (this.#size === 0) {
+      let current = newNodes
+      while (current.next) current = current.next
+      this.#tail = current
+    }
     this.#size += values.length
   }
-
   /**
    * Adds nodes to the tail of the list.
    * @param values - node value array to be added
    * @since 0.3.0
    */
   append(...values: T[]): void {
-    if (this.#size > 0) {
-      let index = 0
-      let currentNode = this.#head
-      while (index < this.#size - 1) {
-        index++
-        currentNode = currentNode?.next ?? null
-      }
-      currentNode = currentNode as Node<T>
-      currentNode.next = this.#createNodes(values, null)
-    } else this.#head = this.#createNodes(values, null)
+    if (values.length === 0) return
+    const newNodes = this.#createNodes(values, null)
+    if (this.#size === 0) this.#head = newNodes
+    else this.#tail!.next = newNodes
+    let current = newNodes
+    while (current.next) current = current.next
+    this.#tail = current
     this.#size += values.length
   }
-
   /**
    * Inserts nodes at the specified position.
    * @param index - insert position
@@ -77,7 +90,6 @@ export class LinkedList<T> implements Iterable<T> {
     n.next = this.#createNodes(values, n.next)
     this.#size += values.length
   }
-
   /**
    * Gets the node value at the specified position.
    * @param index - node position
@@ -99,11 +111,13 @@ export class LinkedList<T> implements Iterable<T> {
     }
     return n?.value as T
   }
-
   /**
    * Sets the node value at the specified position.
    * @param index - node position
-   * @param value - node value
+   * @param value - node value to be set
+   * @throws TypeError - if index is not a number
+   * @throws RangeError - if index is out of bounds
+   * @since 0.3.0
    */
   set(index: number, value: T): void {
     if (typeof index !== "number") throw new TypeError("Index must be a number")
@@ -119,7 +133,6 @@ export class LinkedList<T> implements Iterable<T> {
     n = n as Node<T>
     n.value = value
   }
-
   /**
    * Gets the first node position of the specified value.
    * @param value - node value
@@ -136,16 +149,15 @@ export class LinkedList<T> implements Iterable<T> {
     }
     return null
   }
-
   /**
    * Clears the list.
    * @since 0.3.0
    */
   clear(): void {
     this.#head = null
+    this.#tail = null
     this.#size = 0
   }
-
   /**
    * Deletes the node at the specified position.
    * @param index - node position
@@ -156,7 +168,10 @@ export class LinkedList<T> implements Iterable<T> {
     if (index < 0) index = this.#size + index
     if (index < 0 || index >= this.#size) throw new RangeError("Index out of bounds")
     index = Math.floor(index)
-    if (index !== 0) {
+    if (index === 0) {
+      this.#head = this.#head?.next ?? null
+      if (this.#size === 1) this.#tail = null
+    } else {
       let i = 0
       let n = this.#head
       while (i < index - 1) {
@@ -165,10 +180,12 @@ export class LinkedList<T> implements Iterable<T> {
       }
       n = n as Node<T>
       n.next = n.next?.next ?? null
-    } else this.#head = this.#head?.next ?? null
+      if (index === this.#size - 1) {
+        this.#tail = n
+      }
+    }
     this.#size--
   }
-
   /**
    * Gets the size of the list.
    * @returns list size
@@ -177,7 +194,6 @@ export class LinkedList<T> implements Iterable<T> {
   size(): number {
     return this.#size
   }
-
   /**
    * Iterator.
    * @returns iterator object
@@ -192,7 +208,6 @@ export class LinkedList<T> implements Iterable<T> {
       i++
     }
   }
-
   /**
    * Converts the list to an array.
    * @returns the list as an array
@@ -201,7 +216,6 @@ export class LinkedList<T> implements Iterable<T> {
   toArray(): T[] {
     return [...this]
   }
-
   /**
    * Creates a new linked list from list1 and list2.
    * @param list1 - list 1
@@ -214,12 +228,11 @@ export class LinkedList<T> implements Iterable<T> {
     list.append(...list1, ...list2)
     return list
   }
-
   /**
    * Creates a new linked list of which the values meet the condition specified by the callback function.
-   * @param list - the list
-   * @param predicate - a function that accepts one or two arguments, called for each element in the list
-   * @returns thr new linked list
+   * @param list - the list to filter
+   * @param predicate - a function that accepts up to two arguments and returns a boolean
+   * @returns the new filtered linked list
    * @since 0.3.0
    */
   static filter<T>(
