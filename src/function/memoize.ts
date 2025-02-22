@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 /**
  * Creates a new functions that caches the results of a given function.
  * @param fn - the function to memoize

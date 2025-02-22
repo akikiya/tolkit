@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 /**
  * Creates a new function that will only be invoked at most once.
  * @param fn - the function to be wrapped
